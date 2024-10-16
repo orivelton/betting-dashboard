@@ -1,5 +1,6 @@
 "use client";
 
+import { initialGames } from "@/consts/game";
 import {
   Select,
   SelectContent,
@@ -11,6 +12,10 @@ import {
 export const SportFilter: React.FC<{
   onFilterChange: (sport: string) => void;
 }> = ({ onFilterChange }) => {
+  const gameoptions = [
+    ...new Set(initialGames.map((item) => item.sport)),
+  ].sort();
+
   return (
     <Select onValueChange={onFilterChange}>
       <SelectTrigger className="w-[180px]">
@@ -18,9 +23,11 @@ export const SportFilter: React.FC<{
       </SelectTrigger>
       <SelectContent>
         <SelectItem value="all">All Sports</SelectItem>
-        <SelectItem value="Soccer">Soccer</SelectItem>
-        <SelectItem value="Basketball">Basketball</SelectItem>
-        <SelectItem value="Baseball">Baseball</SelectItem>
+        {gameoptions.map((item) => (
+          <SelectItem key={item} value={item}>
+            {item}
+          </SelectItem>
+        ))}
       </SelectContent>
     </Select>
   );

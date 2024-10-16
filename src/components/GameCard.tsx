@@ -32,7 +32,6 @@ export const GameCard: React.FC<{
   const handleBet = () => {
     onPlaceBet(game.id, selectedTeam, Number(betAmount));
     setIsOpen(false);
-    setBetAmount("");
   };
 
   return (
