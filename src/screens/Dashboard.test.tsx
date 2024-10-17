@@ -1,6 +1,7 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import Dashboard from "./Dashboard";
 import { initialGames } from "@/consts/game";
+import { Game } from "@/models/game";
 
 // Mock the SportFilter and GameCard components
 jest.mock("@/components/SportFilter", () => ({
@@ -22,7 +23,13 @@ jest.mock("@/components/SportFilter", () => ({
 }));
 
 jest.mock("@/components/GameCard", () => ({
-  GameCard: ({ game, onPlaceBet }: { game: any; onPlaceBet: any }) => (
+  GameCard: ({
+    game,
+    onPlaceBet,
+  }: {
+    game: Game;
+    onPlaceBet: (gameId: string, team: "A" | "B", amount: number) => void;
+  }) => (
     <div data-testid="game-card">
       <div>
         {game.sport}: {game.teamA} vs {game.teamB}

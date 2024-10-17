@@ -2,7 +2,6 @@
 
 import { useState, useReducer, useMemo } from "react";
 import { Button } from "@/components/ui/button";
-import { BetAction, Game } from "@/models/game";
 import { initialGames } from "@/consts/game";
 import { SportFilter } from "@/components/SportFilter";
 import { GameCard } from "@/components/GameCard";
