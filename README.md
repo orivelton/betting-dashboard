@@ -40,3 +40,7 @@ Scripts
 	•	npm run start: Start the production server.
 	•	npm run lint: Lint the project using ESLint.
 	•	npm run test: run the unit tests.
+
+
+![Screenshot 2024-10-17 at 11 01 16](https://github.com/user-attachments/assets/020f6698-ddac-49a4-8c97-02d0b5d52191)
+
