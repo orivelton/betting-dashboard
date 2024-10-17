@@ -12,6 +12,7 @@ import {
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
@@ -60,6 +61,7 @@ export const GameCard: React.FC<{
           <DialogContent>
             <DialogHeader>
               <DialogTitle>Place your bet</DialogTitle>
+              <DialogDescription />
             </DialogHeader>
             <RadioGroup
               value={selectedTeam}

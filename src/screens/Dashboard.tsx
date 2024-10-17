@@ -6,27 +6,7 @@ import { BetAction, Game } from "@/models/game";
 import { initialGames } from "@/consts/game";
 import { SportFilter } from "@/components/SportFilter";
 import { GameCard } from "@/components/GameCard";
-
-function betReducer(state: Game[], action: BetAction): Game[] {
-  switch (action.type) {
-    case "PLACE_BET":
-      return state.map((game) =>
-        game.id === action.gameId
-          ? {
-              ...game,
-              betsA:
-                action.team === "A" ? game.betsA + action.amount : game.betsA,
-              betsB:
-                action.team === "B" ? game.betsB + action.amount : game.betsB,
-            }
-          : game
-      );
-    case "RESET":
-      return initialGames;
-    default:
-      return state;
-  }
-}
+import { betReducer } from "@/actions/betReducer";
 
 export default function Dashboard() {
   const [games, dispatch] = useReducer(betReducer, initialGames);
